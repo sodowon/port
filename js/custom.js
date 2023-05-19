@@ -64,6 +64,51 @@ $(function(){
 });
 
 $(function(){
+  
+  $(".start>a:first-child").on("click",function(){
+    $(".gnb_wrap").stop().slideToggle();
+  });
+
+  $("#visual .bar").on("click",function(){
+    $("#visual .main").stop().slideUp();
+  }); 
+  $("#visual .x").on("click",function(){
+    $("#visual .main").stop().slideUp();
+  }); 
+
+  $("#visual .min_x").on("click",function(){
+    $("#visual .main").stop().slideToggle();
+    $("#visual .min_o").stop().css({display:"block"});
+    $("#visual .min_x").stop().css({display:"none"});
+  });
+  $("#visual .min_o").on("click",function(){
+    $("#visual .main").stop().slideToggle();
+    $("#visual .min_o").stop().css({display:"none"});
+    $("#visual .min_x").stop().css({display:"block"});
+  });
+
+  $("#visual .max").on("click",function(){
+    $("#visual .main").stop().animate({width:"99.5%", height:"94vh"});
+    $("#visual .main_visual").stop().animate({height:"90vh"});
+    $(".visual_video").stop().animate({maxHeight:"95vh"});
+    $("#visual .max").stop().css({display:"none"});
+    $("#visual .min").stop().css({display:"block"});
+  });
+
+  $("#visual .min").on("click",function(){
+    $("#visual .main").stop().animate({width:"80%", height:"83vh"});
+    $("#visual .main_visual").stop().animate({height:"83vh"});    
+    $(".visual_video").stop().animate({maxHeight:"79vh"});
+    $("#visual .max").stop().css({display:"block"});
+    $("#visual .min").stop().css({display:"none"});
+  });
+
+  $(".ok").on("click",function(){
+    alert("감사합니다");
+  });
+})
+
+$(function(){
     $(".con").on("mouseenter",function(){
         vid = $(this).find("video").get(0);
         vid.play();
@@ -167,6 +212,15 @@ $(function(){
           $(".panel0 li").last().prependTo(".panel0");
           $(".panel0").css({left: "-100%"});
       }); 
+  });
+});
+
+$(function(){
+  $("#contact .contact_box>.ok").on("click",function(){
+    $("#contact .contact_box").stop().slideUp();
+  });
+  $("#contact .contact_box>.main_x a").on("click",function(){
+    $("#contact .contact_box").stop().slideUp();
   });
 });
 
