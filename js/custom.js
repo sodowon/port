@@ -43,8 +43,10 @@ $(function(){
         let target = $(this).children("a").attr("href");
         //alert(target);
         let pos = $(target).offset().top;
-        //alert(pos);
-        $("html,body").stop().animate({scrollTop:pos},1000);
+        //alert(pos);             
+        $("#navi li").removeClass("on");
+        $(this).addClass("on");
+        $("html,body").stop().animate({scrollTop:pos},1000);   
     });
 });
 
@@ -112,22 +114,20 @@ $(function(){
     $(".con").on("mouseenter",function(){
         vid = $(this).find("video").get(0);
         vid.play();
-        $(this).stop().animate({width:"150%"});
+        $(this).stop().animate({width:"225%"});
         $(this).children("video").stop().animate({opacity:"1"},1000);
-        $(this).children("h2").stop().css({color:"#0e1619",background:"#c8a3b5", opacity:"0"});
-        $(this).children("h3").stop().animate({right:"10px"},1000);
-        $(this).children("p").stop().animate({right:"10px"},1000);
+        $(this).children("h2").stop().css({color:"#0e1619",background:"#c8a3b5"});
+        $(this).children(".con1_text").stop().show().animate({right:"50px"},1000);
         $(this).children("img").stop().animate({opacity:"1",width:"70%"},1000);
     });
 
     $(".con").on("mouseleave",function(){
         vid = $(this).find("video").get(0);
         vid.pause();
-        $(this).stop().animate({width:"25%"});
+        $(this).stop().animate({width:"33.333%"});
         $(this).children("video").stop().animate({opacity:"0"});
-        $(this).children("h2").stop().css({color:"#c8a3b5",background:"#0e1619", opacity:"1"});
-        $(this).children("h3").stop().css({right:"-1000px"});
-        $(this).children("p").stop().css({right:"-1500px"});
+        $(this).children("h2").stop().css({color:"#c8a3b5",background:"#0e1619"});
+        $(this).children(".con1_text").stop().hide().css({right:"-1000px"});
         $(this).children("img").stop().animate({opacity:"0",width:"0"},1000);
     });
 
@@ -189,13 +189,13 @@ $(function(){
       $(".panel1")
       .stop()
       .animate({left : "-100%"},function(){
-          $(".panel1 li").first().appendTo(".panel1");
+          $(".panel1>li").first().appendTo(".panel1");
           $(".panel1").css({left: "-100%"});              
       });
       $(".panel0")
       .stop()
       .animate({left : "-100%"},function(){
-          $(".panel0 li").first().appendTo(".panel0");
+          $(".panel0>li").first().appendTo(".panel0");
           $(".panel0").css({left: "-100%"});
       });  
   });
@@ -203,13 +203,13 @@ $(function(){
       $(".panel1")
       .stop()
       .animate({left:"-100%"},function(){
-          $(".panel1 li").last().prependTo(".panel1");
+          $(".panel1>li").last().prependTo(".panel1");
           $(".panel1").css({left: "-100%"});
       });
       $(".panel0")
       .stop()
       .animate({left : "-100%"},function(){
-          $(".panel0 li").last().prependTo(".panel0");
+          $(".panel0>li").last().prependTo(".panel0");
           $(".panel0").css({left: "-100%"});
       }); 
   });
@@ -223,6 +223,15 @@ $(function(){
     $("#contact .contact_box").stop().slideUp();
   });
 });
+
+$(function(){
+  $(".slider1").on("mouseenter",function(){
+    $(".a_text").stop().show();
+  });
+  $(".slider1").on("mouseleave",function(){
+    $(".a_text").stop().hide();
+  });
+})
 
 
 
